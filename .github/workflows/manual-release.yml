@@ -18,6 +18,16 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
+    
+    - name: Prepare bootloader
+      run: |
+        mkdir -p tmp && cd tmp && \
+        curl --location --remote-name https://github.com/pyinstaller/pyinstaller/releases/download/v4.3/pyinstaller-4.3.tar.gz && \
+        tar xfz pyinstaller-4.3.tar.gz && \
+        cd pyinstaller-4.3/bootloader && \
+        python ./waf all
+
+
     - name: Build pyinstaller
       run: |
         pyinstaller --clean -F demo.py
