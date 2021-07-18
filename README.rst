@@ -23,9 +23,6 @@ Overview
     :alt: Travis-CI Build Status
     :target: https://travis-ci.com/github/mpapenbr/playground-python
 
-.. |requires| image:: https://requires.io/github/mpapenbr/playground-python/requirements.svg?branch=main
-    :alt: Requirements Status
-    :target: https://requires.io/github/mpapenbr/playground-python/requirements/?branch=main
 
 .. |version| image:: https://img.shields.io/pypi/v/playground.svg
     :alt: PyPI Package latest release
