@@ -21,6 +21,8 @@ jobs:
     
     - name: Prepare bootloader
       shell: bash
+      # we need this step in order to get a "unique" installer signature that hopefully doesn't produce a virus warning
+      # if this step is not done, many anti virus tools may complain with heuristic virus detection messages 
       run: |
         mkdir -p tmp && cd tmp && \
         curl --location --remote-name https://github.com/pyinstaller/pyinstaller/releases/download/v4.3/pyinstaller-4.3.tar.gz && \
