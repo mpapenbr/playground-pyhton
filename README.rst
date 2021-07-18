@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - tests
-      - | |travis| |requires|
+      - | |travis|
         |
     * - package
       - | |version| |wheel| |supported-versions| |supported-implementations|

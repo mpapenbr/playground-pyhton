@@ -9,30 +9,30 @@ env:
     - LANG=en_US.UTF-8
 matrix:
   include:
-    - python: '3.6'
+    - python: '3.9'
       env:
         - TOXENV=check
-    - python: '3.6'
+    - python: '3.9'
       env:
         - TOXENV=docs
-    - env:
-        - TOXENV=py36-cover
-      python: '3.6'
-    - env:
-        - TOXENV=py36-nocov
-      python: '3.6'
-    - env:
-        - TOXENV=py37-cover
-      python: '3.7'
-    - env:
-        - TOXENV=py37-nocov
-      python: '3.7'
-    - env:
-        - TOXENV=py38-cover
-      python: '3.8'
-    - env:
-        - TOXENV=py38-nocov
-      python: '3.8'
+    # - env:
+    #     - TOXENV=py36-cover
+    #   python: '3.6'
+    # - env:
+    #     - TOXENV=py36-nocov
+    #   python: '3.6'
+    # - env:
+    #     - TOXENV=py37-cover
+    #   python: '3.7'
+    # - env:
+    #     - TOXENV=py37-nocov
+    #   python: '3.7'
+    # - env:
+    #     - TOXENV=py38-cover
+    #   python: '3.8'
+    # - env:
+    #     - TOXENV=py38-nocov
+    #   python: '3.8'
     - env:
         - TOXENV=py39-cover
       python: '3.9'
@@ -43,10 +43,10 @@ matrix:
         - TOXENV=pypy3-cover
         - TOXPYTHON=pypy3
       python: 'pypy3'
-    - env:
-        - TOXENV=pypy3-nocov
-        - TOXPYTHON=pypy3
-      python: 'pypy3'
+    # - env:
+    #     - TOXENV=pypy3-nocov
+    #     - TOXPYTHON=pypy3
+    #   python: 'pypy3'
 before_install:
   - python --version
   - uname -a
