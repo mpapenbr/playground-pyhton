@@ -19,13 +19,13 @@ Overview
     :target: https://playground-python.readthedocs.io/
     :alt: Documentation Status
 
-.. |travis| image:: https://api.travis-ci.com/mpapenbr/playground-python.svg?branch=master
+.. |travis| image:: https://api.travis-ci.com/mpapenbr/playground-python.svg?branch=main
     :alt: Travis-CI Build Status
     :target: https://travis-ci.com/github/mpapenbr/playground-python
 
-.. |requires| image:: https://requires.io/github/mpapenbr/playground-python/requirements.svg?branch=master
+.. |requires| image:: https://requires.io/github/mpapenbr/playground-python/requirements.svg?branch=main
     :alt: Requirements Status
-    :target: https://requires.io/github/mpapenbr/playground-python/requirements/?branch=master
+    :target: https://requires.io/github/mpapenbr/playground-python/requirements/?branch=main
 
 .. |version| image:: https://img.shields.io/pypi/v/playground.svg
     :alt: PyPI Package latest release
@@ -45,7 +45,7 @@ Overview
 
 .. |commits-since| image:: https://img.shields.io/github/commits-since/mpapenbr/playground-python/v0.1.1.svg
     :alt: Commits since latest release
-    :target: https://github.com/mpapenbr/playground-python/compare/v0.1.1...master
+    :target: https://github.com/mpapenbr/playground-python/compare/v0.1.1...main
 
 
 
