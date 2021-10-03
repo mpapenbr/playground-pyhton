@@ -40,9 +40,9 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.org/project/playground
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/mpapenbr/playground-python/v0.2.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/mpapenbr/playground-python/v0.2.1.svg
     :alt: Commits since latest release
-    :target: https://github.com/mpapenbr/playground-python/compare/v0.2.0...main
+    :target: https://github.com/mpapenbr/playground-python/compare/v0.2.1...main
 
 
 

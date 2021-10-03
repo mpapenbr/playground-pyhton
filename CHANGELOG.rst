@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+v0.2.1 (2021-10-03)
+-------------------
+
+Changes
+~~~~~~~
+- Dummy entry (to sync versions/tags) [mpapenbr]
+
+
 v0.2.0 (2021-10-03)
 -------------------
 
