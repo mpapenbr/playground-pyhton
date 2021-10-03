@@ -1,4 +1,5 @@
 on:
+  workflow_dispatch:
   push:
     # Sequence of patterns matched against refs/tags
     tags:
@@ -21,9 +22,24 @@ jobs:
 
 
 
-    - name: Build application binary
+    - name: Prepare bootloader
+      shell: bash
+      # we need this step in order to get a "unique" installer signature that hopefully doesn't produce a virus warning
+      # if this step is not done, many anti virus tools may complain with heuristic virus detection messages
       run: |
-        tox -e winbinary
+        CURDIR = $PWD && \
+        mkdir -p tmp && cd tmp && \
+        curl --location --remote-name https://github.com/pyinstaller/pyinstaller/archive/refs/tags/v4.5.1.tar.gz && \
+        tar xfz v4.5.1.tar.gz && \
+        cd pyinstaller-4.5.1/bootloader && \
+        python ./waf all && \
+        cd $CURDIR
+        cd tmp && python setup.py install
+
+
+    - name: Build pyinstaller
+      run: |
+        pyinstaller --clean --noconfirm -F src/playground/__main__.py --name playground
 
     - name: Create Release
       id: create_release
