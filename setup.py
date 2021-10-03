@@ -23,7 +23,7 @@ def read(*names, **kwargs):
 
 setup(
     name='playground',
-    version='0.2.6',
+    version='0.2.7',
     license='MIT',
     description='Playground for python stuff',
 
