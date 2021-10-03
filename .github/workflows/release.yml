@@ -27,7 +27,7 @@ jobs:
       # we need this step in order to get a "unique" installer signature that hopefully doesn't produce a virus warning
       # if this step is not done, many anti virus tools may complain with heuristic virus detection messages
       run: |
-        CURDIR = $PWD && \
+        CURDIR=$PWD && \
         mkdir -p tmp && cd tmp && \
         curl --location --remote-name https://github.com/pyinstaller/pyinstaller/archive/refs/tags/v4.5.1.tar.gz && \
         tar xfz v4.5.1.tar.gz && \
