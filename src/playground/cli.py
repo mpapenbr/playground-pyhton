@@ -16,30 +16,29 @@ Why does this file exist, and why not put this in __main__?
 """
 import sys
 
+import certifi
+import click
+import urllib3
+
+from playground import __version__
+from playground.greeter.greeter import Greeter
 from playground.subtwo.bar import Bar
 
-from playground.greeter.greeter import Greeter
-from playground import __version__
+
+@click.command()
 
 
-def main(argv=sys.argv):
-    """
-    Args:
-        argv (list): List of arguments
+@click.option('--url', help='url to fetch')
+@click.version_option(__version__)
+def main(url):
+    """This is a dummy module which will be adapted to certain test purposes. """
+    if (url != None):
+        click.echo(url)
+        http = urllib3.PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
+        # http = urllib3.PoolManager()
+        resp = http.request('GET', url )
+        print(resp.status)
 
-    Returns:
-        int: A return code
 
-    Does stuff.
-    """
-    print(f"Demo {__version__}")
-    print(argv)
-    if (len(argv) > 1):
-        print("{}".format(Greeter().greetings(argv[1])))
-    else:
-        print("{}".format(Greeter().greetings()))
 
-    #print("{}".format(Bar().let_foo_do_something()))
-    Bar().let_sample_do_something()
-    print("DONE")
-    return 0
+

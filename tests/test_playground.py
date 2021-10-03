@@ -1,6 +1,9 @@
 
+from click.testing import CliRunner
 from playground.cli import main
 
 
 def test_main():
-    assert main([]) == 0
+    runner = CliRunner()
+    result = runner.invoke(main)
+    assert result.exit_code == 0
