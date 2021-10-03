@@ -1,0 +1,6 @@
+pytest
+tox
+bump2version
+gitchangelog
+isort
+flake8

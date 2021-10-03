@@ -1,2 +1,3 @@
-pytest
-tox
+click==8.0.1
+certifi
+urllib3
