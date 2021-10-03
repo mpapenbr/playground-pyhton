@@ -2,6 +2,14 @@ Changelog
 =========
 
 
+v0.2.3 (2021-10-03)
+-------------------
+
+Changes
+~~~~~~~
+- Github: prepare pyinstaller. [mpapenbr]
+
+
 v0.2.2 (2021-10-03)
 -------------------
 
