@@ -2,8 +2,20 @@ Changelog
 =========
 
 
+v0.2.0 (2021-10-03)
+-------------------
+
+New
+~~~
+- CLI for testing. [mpapenbr]
+
+Changes
+~~~~~~~
+- Fixed some links. [mpapenbr]
+
+
 v0.1.1 (2021-07-18)
-------------------
+-------------------
 
 New
 ~~~
