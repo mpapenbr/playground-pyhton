@@ -15,7 +15,7 @@ git add CHANGELOG.rst
 bump2version --allow-dirty  $VERSION_PART
 
 git push
-git push origin v$VERSION_PART
+git push origin v$nextVersion
 
 # git commit -m "Bump $currentVersion -> $nextVersion"
 # git tag v$nextVersion -m "Bump $currentVersion -> $nextVersion"
