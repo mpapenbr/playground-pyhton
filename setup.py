@@ -73,8 +73,14 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
+        'urllib3',
+        'certifi',
+        'autobahn>=21',
+        'click>=8'
+
     ],
     extras_require={
+        'tox'
         # eg:
         #   'rst': ['docutils>=0.11'],
         #   ':python_version=="2.6"': ['argparse'],
