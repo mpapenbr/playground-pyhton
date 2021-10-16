@@ -1,0 +1,32 @@
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+name: CI
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        architecture: 'x64'
+    
+    - name: Install dependencies
+      run: |
+        pip install -r requirements_dev.txt
+
+    - name: Run tests
+      run: tox 
+
+
+
+    
