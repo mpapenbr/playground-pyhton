@@ -18,8 +18,9 @@ import sys
 
 import certifi
 import click
-from click.decorators import pass_context
 import urllib3
+from autobahn.asyncio.wamp import ApplicationRunner
+from click.decorators import pass_context
 
 from playground import __version__
 from playground.caller import CallEndpoint
@@ -28,7 +29,7 @@ from playground.publish import Publisher
 from playground.register import RegisterEndpoint
 from playground.subscriber import Subscriber
 from playground.subtwo.bar import Bar
-from autobahn.asyncio.wamp import  ApplicationRunner
+
 
 @click.group()
 @click.option('--url', help='url to fetch')
@@ -48,8 +49,15 @@ def main(url):
 @click.option("--url", help="url of the crossbar server", default="ws://host.docker.internal:8090/ws")
 @click.option("--realm", help="realm", default="demo", show_default=True)
 @click.option("--topic", help="Subscribe to this topic", default="demo.sampletopic", show_default=True)
-def subscribe(ctx, url, realm, topic):
-    runner = ApplicationRunner(url, realm, extra={'topic':topic})
+@click.option("--user", help="username")
+@click.option("--password", help="password")
+def subscribe(ctx, url, realm, topic, user, password):
+    extra = {'topic':topic}
+    if user is not None:
+        extra['user'] = user
+    if password is not None:
+        extra['password'] = password
+    runner = ApplicationRunner(url, realm, extra=extra)
     runner.run(Subscriber)
 
 

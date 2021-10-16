@@ -1,14 +1,17 @@
-import time
-import datetime
 import asyncio
+import datetime
+import time
 from os import environ
-from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+
+from autobahn.asyncio.wamp import ApplicationRunner
+from autobahn.asyncio.wamp import ApplicationSession
+
+from playground.basesession import BaseSession
 
 
-class Subscriber(ApplicationSession):
+class Subscriber(BaseSession):
     """
-    An application component that subscribes and receives events, and
-    stop after having received 5 events.
+    prints incoming data from connected topic to console
     """
 
     async def onJoin(self, details):

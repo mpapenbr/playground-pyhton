@@ -1,25 +1,18 @@
-import time
 import asyncio
+import time
 from os import environ
-from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+
+from autobahn.asyncio.wamp import ApplicationRunner
+from autobahn.asyncio.wamp import ApplicationSession
+
+from playground.basesession import BaseSession
 
 
-class CallEndpoint(ApplicationSession):
+class CallEndpoint(BaseSession):
     """
-    An application component that subscribes and receives events, and
-    stop after having received 5 events.
+    sends 'some caller value' to the endpoint
     """
-    def onConnect(self):
-        self.log.info("Client connected: {klass}", klass=ApplicationSession)
-        if 'user' in self.config.extra:            
-            self.join(self.config.realm, authid=self.config.extra['user'], authmethods=["ticket"])
-        else:
-            self.join(self.config.realm)
-
-    def onChallenge(self, challenge):
-        self.log.info("Challenge for method {authmethod} received {challenge}", authmethod=challenge.method, challenge=challenge)
-        return self.config.extra['password']
-
+   
     async def onJoin(self, details):
         print(details)
         print(self.config.extra)

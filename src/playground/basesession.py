@@ -1,7 +1,9 @@
-import time
 import asyncio
+import time
 from os import environ
-from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+
+from autobahn.asyncio.wamp import ApplicationRunner
+from autobahn.asyncio.wamp import ApplicationSession
 
 
 class BaseSession(ApplicationSession):
@@ -17,6 +19,7 @@ class BaseSession(ApplicationSession):
 
     def onChallenge(self, challenge):
         self.log.info("Challenge for method {authmethod} received {challenge}", authmethod=challenge.method, challenge=challenge)
+        # print(f"sending {self.config.extra['password']}")
         return self.config.extra['password']
 
     def onDisconnect(self):

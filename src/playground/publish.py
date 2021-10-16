@@ -1,31 +1,26 @@
-import time
 import asyncio
+import time
 from os import environ
-from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+
+from autobahn.asyncio.wamp import ApplicationRunner
+from autobahn.asyncio.wamp import ApplicationSession
+
+from playground.basesession import BaseSession
 
 
-class Publisher(ApplicationSession):
+class Publisher(BaseSession):
     """
-    An application component that subscribes and receives events, and
-    stop after having received 5 events.
+    sends the current time (x5) to a topic
+    Sidenode: crossbar does not throw an exception is user is not allowed to publish on that topic. 
+    Messages are just discarded on server
     """
-    def onConnect(self):
-        self.log.info("Client connected: {klass}", klass=ApplicationSession)
-        if 'user' in self.config.extra:            
-            self.join(self.config.realm, authid=self.config.extra['user'], authmethods=["ticket"])
-        else:
-            self.join(self.config.realm)
-
-    def onChallenge(self, challenge):
-        self.log.info("Challenge for method {authmethod} received", authmethod=challenge.method)
-        return self.config.extra['password']
-
+    
     async def onJoin(self, details):
         print(details)
         print(self.config.extra)
         # self.log.info(f"onJoin {details}")
 
-        for i in range(0,5):
+        for _ in range(0,5):
             try:
                 x = self.publish(self.config.extra['topic'], time.time())
                 print(x)

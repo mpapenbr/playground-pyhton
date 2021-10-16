@@ -1,26 +1,19 @@
-import time
-import datetime
 import asyncio
+import datetime
+import time
 from os import environ
-from autobahn.asyncio.wamp import ApplicationSession, ApplicationRunner
+
+from autobahn.asyncio.wamp import ApplicationRunner
+
+from playground.basesession import BaseSession
 
 
-class RegisterEndpoint(ApplicationSession):
+class RegisterEndpoint(BaseSession):
     """
-    An application component that subscribes and receives events, and
-    stop after having received 5 events.
+    returns the input data along with a prefixed timestamp
     """
 
-    def onConnect(self):
-        self.log.info("Client connected: {klass}", klass=ApplicationSession)
-        if 'user' in self.config.extra:            
-            self.join(self.config.realm, authid=self.config.extra['user'], authmethods=["ticket"])
-        else:
-            self.join(self.config.realm)
-
-    def onChallenge(self, challenge):
-        self.log.info("Challenge for method {authmethod} received ", authmethod=challenge.method)
-        return self.config.extra['password']
+    
 
     async def onJoin(self, details):
         print(details)
