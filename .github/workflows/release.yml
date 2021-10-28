@@ -19,7 +19,7 @@ jobs:
       with:
         python-version: '3.9'
         architecture: 'x64'
-        
+
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
@@ -58,6 +58,7 @@ jobs:
         prerelease: false
 
     - name: Prepare release asset
+      shell: bash
       run: |
         mkdir -p assets && \
         cp ./dist/playground.exe assets && \
