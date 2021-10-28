@@ -41,9 +41,12 @@ jobs:
         cd $CURDIR
         cd tmp/pyinstaller-4.5.1 && python setup.py install
 
+    - name: do local install
+      run: |
+        pip install -e .
 
     - name: Build pyinstaller
-      run: |
+      run: |            
         pyinstaller --clean --noconfirm -F src/playground/__main__.py --name playground
 
     - name: Create Release
@@ -65,11 +68,11 @@ jobs:
         cp ./README.rst assets
     
     - name: Create zip
-      uses: papeloto/action-zip@v1^
+      uses: papeloto/action-zip@v1
       with:
         files: assets/
         dest: playground.zip
-        recursive: false
+        recursive: true # note: may be a bug. see https://github.com/vimtor/action-zip/issues/8
     
     - uses: actions/upload-artifact@v1
       with:
