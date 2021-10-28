@@ -2,6 +2,18 @@ Changelog
 =========
 
 
+v0.3.0 (2021-10-28)
+-------------------
+
+New
+~~~
+- Cli for crossbar tests. [mpapenbr]
+
+Changes
+~~~~~~~
+- Ci: specify python version, ci actions. [mpapenbr]
+
+
 v0.2.8 (2021-10-03)
 -------------------
 
