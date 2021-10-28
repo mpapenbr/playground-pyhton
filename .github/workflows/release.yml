@@ -68,7 +68,7 @@ jobs:
       uses: papeloto/action-zip@v1^
       with:
         files: assets/
-        dest: ${{ github.workspace }}/playground.zip
+        dest: playground.zip
         recursive: false
     
     - uses: actions/upload-artifact@v1
@@ -83,6 +83,6 @@ jobs:
        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
-        asset_path: ${{ github.workspace }}/playground.zip
+        asset_path: ./playground.zip
         asset_name: playground.zip
         asset_content_type: application/zip
