@@ -12,7 +12,7 @@ class BaseSession(ApplicationSession):
     """
     def onConnect(self):
         self.log.info("Client connected: {klass}", klass=ApplicationSession)
-        if 'user' in self.config.extra:            
+        if 'user' in self.config.extra and len(self.config.extra['user'].strip()) > 0:
             self.join(self.config.realm, authid=self.config.extra['user'], authmethods=["ticket"])
         else:
             self.join(self.config.realm)

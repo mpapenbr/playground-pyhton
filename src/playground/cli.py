@@ -30,6 +30,7 @@ from playground.register import RegisterEndpoint
 from playground.subscriber import Subscriber
 from playground.subtwo.bar import Bar
 
+from .racelog import commands as racelog_commands
 
 @click.group()
 @click.option('--url', help='url to fetch')
@@ -39,7 +40,7 @@ def main(url):
     if (url is not None):
         click.echo(url)
         http = urllib3.PoolManager(cert_reqs="CERT_REQUIRED", ca_certs=certifi.where())
-        # http = urllib3.PoolManager()
+        # http = urllib3.PoolManager() 
         resp = http.request('GET', url)
         print(resp.status)
 
@@ -108,3 +109,7 @@ def call(ctx, url, realm, endpoint, user, password):
         extra['password'] = password
     runner = ApplicationRunner(url, realm, extra=extra)
     runner.run(CallEndpoint)
+
+
+
+main.add_command(racelog_commands.racelog);
