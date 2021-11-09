@@ -1,10 +1,9 @@
 import click
 
-
-
+from .frontend import commands as frontend_commands
 from .provider import commands as provider_commands
 from .provider.register import commands as provider_register_commands
-from .frontend import commands as frontend_commands
+
 
 @click.group("racelog")
 @click.pass_context

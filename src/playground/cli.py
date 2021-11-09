@@ -32,6 +32,7 @@ from playground.subtwo.bar import Bar
 
 from .racelog import commands as racelog_commands
 
+
 @click.group()
 @click.option('--url', help='url to fetch')
 @click.version_option(__version__)

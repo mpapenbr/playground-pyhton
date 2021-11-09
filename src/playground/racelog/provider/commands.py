@@ -1,12 +1,10 @@
 """commands for register dummy events"""
-from autobahn.asyncio.wamp import ApplicationRunner
 import click
+from autobahn.asyncio.wamp import ApplicationRunner
 from click.core import Group
 
 from playground.racelog.caller import CallEndpoint
 from playground.racelog.provider.list_provider import ListProviders
-
-
 
 
 @click.command("list")

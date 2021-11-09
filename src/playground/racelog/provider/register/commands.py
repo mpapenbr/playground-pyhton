@@ -1,8 +1,9 @@
 """commands for register dummy events"""
-from autobahn.asyncio.wamp import ApplicationRunner
 import click
+from autobahn.asyncio.wamp import ApplicationRunner
 
 from playground.racelog.caller import CallEndpoint
+
 
 @click.command("a")
 @click.pass_obj

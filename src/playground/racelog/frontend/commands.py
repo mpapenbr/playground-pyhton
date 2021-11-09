@@ -1,12 +1,9 @@
 """commands for accessing public available data from"""
-from autobahn.asyncio.wamp import ApplicationRunner
 import click
-
+from autobahn.asyncio.wamp import ApplicationRunner
 
 from playground.racelog.caller import CallEndpoint
 from playground.racelog.frontend.list_events import ListEvents
-
-
 
 
 @click.command("events")
