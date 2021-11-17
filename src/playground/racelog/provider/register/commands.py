@@ -11,9 +11,12 @@ def sampleA(obj):
     """send register sample A"""
     # obj['endpoint'] = "racelog.dataprovider.register_provider"
     obj['rpc_data'] = {
-        "eventKey": "1239", 
+        "eventKey": "1239",         
         "manifests": {"car":[], "state": [], "session":[], "other":[]},
-        "info": {}}
+        "info": {
+            "name": "SampleA"
+            # no description by design
+        }}
     runner = ApplicationRunner(url=obj['url'], realm=obj['realm'], extra=obj)
     runner.run(CallEndpoint)
 
@@ -25,6 +28,9 @@ def sampleB(obj):
     obj['rpc_data'] = {
         "eventKey": "333", 
         "manifests": {"car":[], "state": [], "session":[], "other":[]},
-        "info": {}}
+        "info": {
+            "name": "SampleB",
+            "description": "Description for SampleB",
+        }}
     runner = ApplicationRunner(url=obj['url'], realm=obj['realm'], extra=obj)
     runner.run(CallEndpoint)    
