@@ -8,15 +8,14 @@ from autobahn.asyncio.wamp import ApplicationSession
 from playground.basesession import BaseSession
 
 
-class ListEvents(BaseSession):
+class GetEventById(BaseSession):
     """
-    list stored events
+    get event by eventId
     """
     async def onJoin(self, details):
         try:
-            x = await self.call(self.config.extra['endpoint'])
-            print(f"Got {len(x)} entries")
-            print("\n".join([f"{item['id']}, {item['name']}" for item in x]))
+            x = await self.call(self.config.extra['endpoint'], self.config.extra['rpc_data'])
+            print(x)
         except Exception as e:
             print(f"Got exception {e}. Aborting")             
         self.leave()

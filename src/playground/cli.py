@@ -48,11 +48,11 @@ def main(url):
 
 @main.command()
 @pass_context
-@click.option("--url", help="url of the crossbar server", default="ws://host.docker.internal:8090/ws")
-@click.option("--realm", help="realm", default="demo", show_default=True)
+@click.option("--url", help="url of the crossbar server", envvar="CROSSBAR_URL", default="ws://host.docker.internal:8090/ws")
+@click.option("--realm", help="realm", envvar="CROSSBAR_REALM", default="demo", show_default=True)
+@click.option("--user", help="username", envvar="CROSSBAR_USER")
+@click.option("--password", help="password", envvar="CROSSBAR_PASSWORD")
 @click.option("--topic", help="Subscribe to this topic", default="demo.sampletopic", show_default=True)
-@click.option("--user", help="username")
-@click.option("--password", help="password")
 def subscribe(ctx, url, realm, topic, user, password):
     extra = {'topic':topic}
     if user is not None:
@@ -65,11 +65,11 @@ def subscribe(ctx, url, realm, topic, user, password):
 
 @main.command()
 @pass_context
-@click.option("--url", help="url of the crossbar server", default="ws://host.docker.internal:8090/ws")
-@click.option("--realm", help="realm", default="demo", show_default=True)
+@click.option("--url", help="url of the crossbar server", envvar="CROSSBAR_URL", default="ws://host.docker.internal:8090/ws")
+@click.option("--realm", help="realm", envvar="CROSSBAR_REALM", default="demo", show_default=True)
+@click.option("--user", help="username", envvar="CROSSBAR_USER")
+@click.option("--password", help="password", envvar="CROSSBAR_PASSWORD")
 @click.option("--topic", help="Subscribe to this topic", default="demo.sampletopic", show_default=True)
-@click.option("--user", help="username")
-@click.option("--password", help="password")
 def publish(ctx, url, realm, topic, user, password):
     extra = {'topic':topic}
     if user is not None:
@@ -81,11 +81,11 @@ def publish(ctx, url, realm, topic, user, password):
 
 @main.command()
 @pass_context
-@click.option("--url", help="url of the crossbar server", default="ws://host.docker.internal:8090/ws")
-@click.option("--realm", help="realm", default="demo", show_default=True)
+@click.option("--url", help="url of the crossbar server", envvar="CROSSBAR_URL", default="ws://host.docker.internal:8090/ws")
+@click.option("--realm", help="realm", envvar="CROSSBAR_REALM", default="demo", show_default=True)
+@click.option("--user", help="username", envvar="CROSSBAR_USER")
+@click.option("--password", help="password", envvar="CROSSBAR_PASSWORD")
 @click.option("--endpoint", help="name of the endpoint", default="demo.rpc.endpoint", show_default=True)
-@click.option("--user", help="username")
-@click.option("--password", help="password")
 def register(ctx, url, realm, endpoint, user, password):
     extra = {'endpoint':endpoint}
     if user is not None:
@@ -97,11 +97,11 @@ def register(ctx, url, realm, endpoint, user, password):
 
 @main.command()
 @pass_context
-@click.option("--url", help="url of the crossbar server", default="ws://host.docker.internal:8090/ws")
-@click.option("--realm", help="realm", default="demo", show_default=True)
+@click.option("--url", help="url of the crossbar server", envvar="CROSSBAR_URL", default="ws://host.docker.internal:8090/ws")
+@click.option("--realm", help="realm", envvar="CROSSBAR_REALM", default="demo", show_default=True)
+@click.option("--user", help="username", envvar="CROSSBAR_USER")
+@click.option("--password", help="password", envvar="CROSSBAR_PASSWORD")
 @click.option("--endpoint", help="name of the endpoint", default="demo.rpc.endpoint", show_default=True)
-@click.option("--user", help="username")
-@click.option("--password", help="password")
 def call(ctx, url, realm, endpoint, user, password):
     extra = {'endpoint':endpoint}
     if user is not None:

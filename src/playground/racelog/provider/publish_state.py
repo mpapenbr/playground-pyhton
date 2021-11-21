@@ -8,15 +8,13 @@ from autobahn.asyncio.wamp import ApplicationSession
 from playground.basesession import BaseSession
 
 
-class ListEvents(BaseSession):
+class PublishState(BaseSession):
     """
-    list stored events
+    fake publish a state
     """
-    async def onJoin(self, details):
+    def onJoin(self, details):
         try:
-            x = await self.call(self.config.extra['endpoint'])
-            print(f"Got {len(x)} entries")
-            print("\n".join([f"{item['id']}, {item['name']}" for item in x]))
+            self.publish(self.config.extra['endpoint'], "fakePublish")            
         except Exception as e:
             print(f"Got exception {e}. Aborting")             
         self.leave()
