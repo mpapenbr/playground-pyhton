@@ -13,8 +13,11 @@ def sampleA(obj):
     obj['rpc_data'] = {
         "eventKey": "1239",         
         "manifests": {"car":[], "state": [], "session":[], "other":[]},
+        "trackInfo": {"trackId": 12, "sectors": [], "trackLength": 0, "trackDisplayName": "dummy","trackDisplayShortName": "dummyShort", "trackConfigName": "none" },
         "info": {
-            "name": "SampleA"
+            "name": "SampleA",
+            "trackId": 12,
+            "sectors": [], "trackLength": 0, "trackDisplayName": "dummy","trackDisplayShortName": "dummyShort", "trackConfigName": "none"
             # no description by design
         }}
     runner = ApplicationRunner(url=obj['url'], realm=obj['realm'], extra=obj)

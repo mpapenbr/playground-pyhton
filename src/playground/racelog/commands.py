@@ -5,6 +5,7 @@ from playground.racelog.admin.event.commands import delete as admin_delete_event
 from .frontend import commands as frontend_commands
 from .provider import commands as provider_commands
 from .provider.register import commands as provider_register_commands
+from .provider.extra import commands as provider_extra_commands
 
 
 @click.group("racelog")
@@ -33,6 +34,13 @@ def racelog_provider_reg_group(obj):
     """samples for registering"""
     obj['endpoint'] = "racelog.dataprovider.register_provider"
 
+@racelog_provider_group.group("extra")
+@click.pass_obj
+def racelog_provider_extra_group(obj):
+    """samples for extra data"""
+    obj['endpoint'] = "racelog.dataprovider.store_event_extra_data"
+
+
 @racelog.group("admin")
 @click.pass_obj
 def racelog_admin_group(obj):
@@ -58,7 +66,9 @@ racelog_provider_group.add_command(provider_commands.publish)
 
 racelog_provider_reg_group.add_command(provider_register_commands.sampleA)
 racelog_provider_reg_group.add_command(provider_register_commands.sampleB)
+racelog_provider_reg_group.add_command(provider_register_commands.sampleB)
 
+racelog_provider_extra_group.add_command(provider_extra_commands.extraPit)
 
 racelog_public.add_command(frontend_commands.list)
 racelog_public.add_command(frontend_commands.eventinfo)
